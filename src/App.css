@@ -1,0 +1,188 @@
+/* фон и центрирование всего дашборда */
+.app {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #05050a;
+}
+
+/* две колонки: профиль + карточки */
+.dashboard {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 32px;
+  max-width: 1100px;
+  width: 100%;
+}
+
+/* левая большая карточка */
+.profile-card {
+  background-color: #5b5f7c;
+  border-radius: 18px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* верхняя серая часть профиля */
+.profile-top-block {
+  padding: 24px;
+  background-color: #6a6d88;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: 3px solid #ffffff;
+}
+
+.profile-label {
+  margin: 0;
+  font-size: 14px;
+  color: #d1d5db;
+}
+
+.profile-name {
+  margin: 4px 0 0;
+  font-size: 24px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+/* нижняя тёмная часть профиля с кнопками */
+.profile-bottom-block {
+  padding: 18px 24px 24px;
+  background-color: #4b4d63;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.period-btn {
+  background: transparent;
+  border: none;
+  color: #c4c6d4;
+  font-size: 14px;
+  cursor: pointer;
+  text-align: left;
+  transition: color 0.2s ease, transform 0.15s ease;
+}
+
+.period-btn.active {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.period-btn:hover {
+  color: #ffffff;
+  transform: translateX(3px);
+}
+
+/* сетка карточек */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* базовая карточка */
+.time-card {
+  position: relative;
+  height: 190px;
+  border-radius: 18px;
+  overflow: visible;
+}
+
+/* цветная полоска сверху */
+.time-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 60px;
+  width: 100%;
+  border-radius: 18px 18px 0 0;
+}
+
+/* конкретные цвета как в макете */
+.time-card.work::before {
+  background-color: #ff8b64;
+}
+
+.time-card.play::before {
+  background-color: #56c2e6;
+}
+
+.time-card.study::before {
+  background-color: #ff5e7d;
+}
+
+.time-card.exercise::before {
+  background-color: #4acf81;
+}
+
+.time-card.social::before {
+  background-color: #7536d3;
+}
+
+.time-card.self-care::before {
+  background-color: #f1c65b;
+}
+
+/* тёмная внутренняя карточка */
+.time-card-inner {
+  position: absolute;
+  top: 55px; /* важно: оставляем полоску сверху видимой */
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #1f2430;
+  border-radius: 18px;
+  padding: 20px 20px 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* hover-анимация карточек */
+.time-card:hover .time-card-inner {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 30px rgba(0, 0, 0, 0.45);
+}
+
+/* верхняя часть внутри карточки */
+.time-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #ffffff;
+  font-size: 14px;
+}
+
+.time-card-title {
+  font-weight: 500;
+}
+
+.time-card-dots {
+  color: #9ca3af;
+}
+
+/* цифры и подпись */
+.time-card-hours {
+  margin: 12px 0 2px;
+  font-size: 32px;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+.time-card-prev {
+  font-size: 12px;
+  color: #9ca3af;
+}
